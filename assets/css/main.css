@@ -936,6 +936,13 @@ input, select, textarea {
 			font-size: 2.25em;
 			font-weight: 700;
 		}
+		/* Subtitle paragraphs inside header */
+		#header p {
+			font-size: 0.9em;           /* 比默认小一点 */
+			line-height: 1.6;
+			margin-top: 0.75em;
+		}
+
 
 /* Footer */
 
