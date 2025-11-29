@@ -937,6 +937,17 @@ input, select, textarea {
 			font-weight: 700;
 		}
 
+		#header .logo {
+			margin-bottom: 1.5em;
+			}
+
+			#header .logo img {
+			max-width: 140px;    /* logo 最大宽度 */
+			height: auto;
+			display: block;
+			}
+
+
 /* Footer */
 
 	#footer {
