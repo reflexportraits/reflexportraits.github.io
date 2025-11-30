@@ -835,7 +835,7 @@ input, select, textarea {
 		-webkit-overflow-scrolling: touch;
 		position: fixed;
 		top: 0;
-		width: 22.5em;
+		width: 23.5em;
 		height: 100%;
 		background: #fff;
 		outline: 0;
@@ -865,7 +865,7 @@ input, select, textarea {
 
 		body.fullscreen #main {
 			visibility: hidden;
-			right: -22.5em;
+			right: -23.5em;
 		}
 
 		body.is-preload-1 #main {
@@ -934,8 +934,13 @@ input, select, textarea {
 
 		#header h1 {
 			font-size: 2.25em;
+			font-weight: 400;
+		}
+
+		#header h1 strong {
 			font-weight: 700;
 		}
+
 		/* Subtitle paragraphs inside header */
 		#header p {
 			font-size: 0.9em;           /* 比默认小一点 */
@@ -1088,9 +1093,131 @@ input, select, textarea {
 		grid-column: 2;
 	}
 
-	/* 先暂时不用第 10–12 个，占位但不显示 */
-	#thumbnails article:nth-child(n+10) {
-		display: none;
+	/* 大 row 4：左 2 横 + 右竖（你说的这个 row 右边是竖图） */
+	#thumbnails article:nth-child(10) {
+	grid-row: 7;
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(11) {
+	grid-row: 8;
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(12) {
+	grid-row: 7 / span 2;  /* 竖图 */
+	grid-column: 2;
+	}
+
+	/* 大 row 5：左竖 + 右 2 横 */
+	#thumbnails article:nth-child(13) {
+	grid-row: 9 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(14) {
+	grid-row: 9;
+	grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(15) {
+	grid-row: 10;
+	grid-column: 2;
+	}
+
+	/* 大 row 6：rows 11-12（右竖） */
+	#thumbnails article:nth-child(16) {
+	grid-row: 11;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(17) {
+	grid-row: 12;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(18) {
+	grid-row: 11 / span 2;
+	grid-column: 2;
+	}
+
+	/* 大 row 7：左竖 + 右 2 横 */
+	#thumbnails article:nth-child(19) {
+	grid-row: 13 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(20) {
+	grid-row: 13;
+	grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(21) {
+	grid-row: 14;
+	grid-column: 2;
+	}
+
+	/* 大 row 8：rows 15-16（右竖） */
+	#thumbnails article:nth-child(22) {
+	grid-row: 15;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(23) {
+	grid-row: 16;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(24) {
+	grid-row: 15 / span 2;
+	grid-column: 2;
+	}
+
+	/* 大 row 9：左竖 + 右 2 横 */
+	#thumbnails article:nth-child(25) {
+	grid-row: 17 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(26) {
+	grid-row: 17;
+	grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(27) {
+	grid-row: 18;
+	grid-column: 2;
+	}
+
+	/* 大 row 10：rows 19-20（右竖） */
+	#thumbnails article:nth-child(28) {
+	grid-row: 19;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(29) {
+	grid-row: 20;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(30) {
+	grid-row: 19 / span 2;
+	grid-column: 2;
+	}
+
+	/* 大 row 11：左竖 + 右 2 横 */
+	#thumbnails article:nth-child(31) {
+	grid-row: 21 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(32) {
+	grid-row: 21;
+	grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(33) {
+	grid-row: 22;
+	grid-column: 2;
+	}
+
+	/* 如果以后多于 33 张，先全部隐藏掉，免得打乱布局 */
+	#thumbnails article:nth-child(n+34) {
+	display: none;
 	}
 
 	/* 小屏幕的时候依然保持两列，只是高度会和屏幕一起缩放，看起来也 OK */
@@ -1174,7 +1301,7 @@ input, select, textarea {
 		transition: opacity 0.75s ease, width 0.75s ease;
 		position: absolute;
 		top: 0;
-		width: calc(100% - 22.5em);
+		width: calc(100% - 23.5em);
 		height: 100%;
 		left: 0;
 	}
