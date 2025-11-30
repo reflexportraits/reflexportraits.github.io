@@ -929,7 +929,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 3em 2.25em 1.75em 2.25em ;
+		padding: 3em 2.25em 1em 2.25em ;
 	}
 
 		#header h1 {
@@ -940,7 +940,12 @@ input, select, textarea {
 		#header p {
 			font-size: 0.9em;           /* 比默认小一点 */
 			line-height: 1.6;
-			margin-top: 0.75em;
+			margin-top: 0.2em;
+		}
+
+		#header ul.icons {
+		margin-top: 0.2em;
+		margin-bottom: 1em;       /* 底部不要再留额外空白 */
 		}
 
 
@@ -967,75 +972,134 @@ input, select, textarea {
 				}
 
 /* Thumbnails */
+	/* Thumbnails – 3 portrait tiles + 6 landscape tiles */
 
 	#thumbnails {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-auto-rows: 8rem;               /* 每个横图的基础高度，可按需要调大/调小 */
+		grid-column-gap: 0;
+		grid-row-gap: 0;
 		padding: 0 0.75em;
 	}
 
-		#thumbnails article {
-			position: relative;
-			width: 50%;
-			background: #101010;
-			outline: 0;
+	/* 每个 tile 的基础样式 */
+	#thumbnails article {
+		position: relative;
+		background: #101010;
+		outline: 0;
+	}
+
+	/* 链接本身填满整个格子 */
+	#thumbnails article .thumbnail {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		display: block;
+		position: relative;
+		border: 0;
+		outline: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	/* 图片铺满格子，裁切多余部分 */
+	#thumbnails article .thumbnail img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	/* 选中时的青色描边（从原模板搬过来） */
+	#thumbnails article .thumbnail:before {
+		pointer-events: none;
+		-moz-transition: opacity 0.25s ease;
+		-webkit-transition: opacity 0.25s ease;
+		-ms-transition: opacity 0.25s ease;
+		transition: opacity 0.25s ease;
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		box-shadow: inset 0 0 0 2px #00D3B7,
+					inset 0 0 0px 3px rgba(0, 0, 0, 0.15);
+		opacity: 0;
+		z-index: 1;
+	}
+
+	#thumbnails article h2,
+	#thumbnails article p {
+		display: none;
+	}
+
+	#thumbnails article.active .thumbnail:before {
+		opacity: 1;
+	}
+
+	/* ========= 布局：3 个竖图 + 6 个横图 ========= */
+	/* 这里按照 index.html 里 <article> 的顺序来排 */
+
+	/* 第一组：左竖 + 右边上下两个横图 */
+	#thumbnails article:nth-child(1) {
+		grid-row: 1 / span 2;  /* 竖图：占两行 */
+		grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(2) {
+		grid-row: 1;
+		grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(3) {
+		grid-row: 2;
+		grid-column: 2;
+	}
+
+	/* 第二组：左边上下横图 + 右竖图 */
+	#thumbnails article:nth-child(4) {
+		grid-row: 3;
+		grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(5) {
+		grid-row: 4;
+		grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(6) {
+		grid-row: 3 / span 2;  /* 竖图 */
+		grid-column: 2;
+	}
+
+	/* 第三组：再来一组左竖 + 右边上下横图 */
+	#thumbnails article:nth-child(7) {
+		grid-row: 5 / span 2;  /* 竖图 */
+		grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(8) {
+		grid-row: 5;
+		grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(9) {
+		grid-row: 6;
+		grid-column: 2;
+	}
+
+	/* 先暂时不用第 10–12 个，占位但不显示 */
+	#thumbnails article:nth-child(n+10) {
+		display: none;
+	}
+
+	/* 小屏幕的时候依然保持两列，只是高度会和屏幕一起缩放，看起来也 OK */
+	@media screen and (max-width: 480px) {
+		#thumbnails {
+			grid-auto-rows: 6.5rem;
 		}
+	}
 
-			#thumbnails article .thumbnail {
-				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-				display: block;
-				position: relative;
-				border: 0;
-				outline: 0;
-			}
-
-				#thumbnails article .thumbnail img {
-					display: block;
-					width: 100%;
-				}
-
-				#thumbnails article .thumbnail:before {
-					pointer-events: none;
-					-moz-transition: opacity 0.25s ease;
-					-webkit-transition: opacity 0.25s ease;
-					-ms-transition: opacity 0.25s ease;
-					transition: opacity 0.25s ease;
-					content: '';
-					position: absolute;
-					left: 0;
-					top: 0;
-					width: 100%;
-					height: 100%;
-					box-shadow: inset 0 0 0 2px #00D3B7, inset 0 0 0px 3px rgba(0, 0, 0, 0.15);
-					opacity: 0;
-					z-index: 1;
-				}
-
-				#thumbnails article .thumbnail:focus:before {
-					opacity: 0.5;
-				}
-
-			#thumbnails article h2, #thumbnails article p {
-				display: none;
-			}
-
-			#thumbnails article.active .thumbnail:before {
-				opacity: 1;
-			}
-
-		@media screen and (max-width: 480px) {
-
-			#thumbnails article .thumbnail:before {
-				display: none;
-			}
-
-		}
 
 /* Viewer */
 
