@@ -924,7 +924,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 3em 2.25em 1em 2.25em ;
+		padding: 2.25em 2.25em 1em 2.25em ;
 	}
 
 		#header h1 {
@@ -938,7 +938,7 @@ input, select, textarea {
 
 		/* Subtitle paragraphs inside header */
 		#header p {
-			font-size: 0.9em;           /* 比默认小一点 */
+			font-size: 0.9em;           /* 默认1em */
 			line-height: 1.6;
 			margin-top: 0.2em;
 		}
@@ -948,11 +948,18 @@ input, select, textarea {
 		margin-bottom: 1em;       /* 底部不要再留额外空白 */
 		}
 
+		#header p,
+		#header #booking-note {
+			font-size: 0.9em;      /* 统一字号 */
+			line-height: 1.6;
+			margin-top: 0.1em;
+		}
+
 
 /* Footer */
 
 	#footer {
-		padding: 2.25em 2.25em 1em 2.25em ;
+		padding: 2em 2.25em 1em 2.25em ;
 	}
 
 		#footer .copyright {
@@ -971,17 +978,6 @@ input, select, textarea {
 					margin-left: 0;
 				}
 
-		/* Booking banner */
-		#footer .booking-banner {
-			margin-top: 0.75em;
-			font-size: 0.8em;
-			line-height: 1.4;
-			color: #777;
-		}
-
-		#footer .booking-banner strong {
-			color: #555;
-		}
 
 /* Thumbnails */
 	/* Thumbnails – 3 portrait tiles + 6 landscape tiles */
