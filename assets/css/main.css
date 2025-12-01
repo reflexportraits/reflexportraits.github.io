@@ -1251,8 +1251,24 @@ input, select, textarea {
 	grid-column: 2;
 	}
 
-	/* 如果以后多于 40 张，先全部隐藏掉，免得打乱布局 */
-	#thumbnails article:nth-child(n+41) {
+	/* 大 row 15：左竖 + 右 2 横 */
+	#thumbnails article:nth-child(41) {
+	grid-row: 29 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(42) {
+	grid-row: 29;
+	grid-column: 2;
+	}
+
+	#thumbnails article:nth-child(43) {
+	grid-row: 30;
+	grid-column: 2;
+	}
+
+	/* 如果以后多于 43 张，先全部隐藏掉，免得打乱布局 */
+	#thumbnails article:nth-child(n+44) {
 	display: none;
 	}
 
