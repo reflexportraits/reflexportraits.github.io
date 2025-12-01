@@ -1226,19 +1226,33 @@ input, select, textarea {
 	grid-column: 2;
 	}
 
-	/* 大 row 13：两张竖图（左竖 + 右竖），各占两行 */
+	/* 大 row 13：rows 27-28（右竖） */
 	#thumbnails article:nth-child(36) {
-	grid-row: 25 / span 2;  /* 竖图 */
+	grid-row: 25;
 	grid-column: 1;
 	}
-
 	#thumbnails article:nth-child(37) {
-	grid-row: 25 / span 2;  /* 竖图 */
+	grid-row: 26;
+	grid-column: 1;
+	}
+	#thumbnails article:nth-child(38) {
+	grid-row: 25 / span 2;
 	grid-column: 2;
 	}
 
-	/* 如果以后多于 37 张，先全部隐藏掉，免得打乱布局 */
-	#thumbnails article:nth-child(n+38) {
+	/* 大 row 14：两张竖图（左竖 + 右竖），各占两行 */
+	#thumbnails article:nth-child(39) {
+	grid-row: 27 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(40) {
+	grid-row: 27 / span 2;  /* 竖图 */
+	grid-column: 2;
+	}
+
+	/* 如果以后多于 40 张，先全部隐藏掉，免得打乱布局 */
+	#thumbnails article:nth-child(n+41) {
 	display: none;
 	}
 
