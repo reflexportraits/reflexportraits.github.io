@@ -1215,10 +1215,33 @@ input, select, textarea {
 	grid-column: 2;
 	}
 
-	/* 如果以后多于 33 张，先全部隐藏掉，免得打乱布局 */
-	#thumbnails article:nth-child(n+34) {
+	/* 大 row 12：两张竖图（左竖 + 右竖），各占两行 */
+	#thumbnails article:nth-child(34) {
+	grid-row: 23 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(35) {
+	grid-row: 23 / span 2;  /* 竖图 */
+	grid-column: 2;
+	}
+
+	/* 大 row 13：两张竖图（左竖 + 右竖），各占两行 */
+	#thumbnails article:nth-child(36) {
+	grid-row: 25 / span 2;  /* 竖图 */
+	grid-column: 1;
+	}
+
+	#thumbnails article:nth-child(37) {
+	grid-row: 25 / span 2;  /* 竖图 */
+	grid-column: 2;
+	}
+
+	/* 如果以后多于 37 张，先全部隐藏掉，免得打乱布局 */
+	#thumbnails article:nth-child(n+38) {
 	display: none;
 	}
+
 
 	/* 小屏幕的时候依然保持两列，只是高度会和屏幕一起缩放，看起来也 OK */
 	@media screen and (max-width: 480px) {
